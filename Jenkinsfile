@@ -14,13 +14,13 @@ pipeline{
     stages{
         stage("Fetch Code"){
             steps{
-                git branch: 'main', url:'https://github.com/ridhampatel24/jenkins_react.git'
+                git branch: 'main', url:'https://github.com/ridhampatel24/jenkins_demo.git'
             }
             post {
                 success {
                     slackSend channel: '#jenkinscicd',
                     color: COLOR_MAP[currentBuild.currentResult],
-                    message: "*${currentBuild.currentResult}:* Fetch Code Complete. SonarQube Analysis Starts..."
+                    message: "*${currentBuild.currentResult}:* Fetch Code Complete."
                 }
             }
         }
